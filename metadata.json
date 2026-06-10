@@ -1,0 +1,6 @@
+{
+  "name": "BrightSmile AI Receptionist",
+  "description": "Real-time CRM and operations dashboard for the BrightSmile AI voice booking assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
