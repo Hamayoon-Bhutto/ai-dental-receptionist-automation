@@ -1,16 +1,32 @@
 # AI Dental Receptionist Automation
 
-A modern AI-powered dental appointment automation system built with Retell AI, n8n, Telegram, Twilio, Google Sheets, Google Calendar, and a professional real-time dashboard.
+## Screenshots
 
-This project automates the complete patient appointment workflow for a dental clinic — from lead capture to AI outbound calling, appointment availability checking, calendar booking, call logging, and operational dashboard monitoring.
+Add the project screenshots to `assets/screenshots/` and they will render here without breaking the page.
+
+| Overview | Lead Inbox | AI Calls |
+| --- | --- | --- |
+| Put `assets/screenshots/overview.png` here | Put `assets/screenshots/lead-inbox.png` here | Put `assets/screenshots/ai-calls.png` here |
+
+| Calendar | Follow-ups | Analytics |
+| --- | --- | --- |
+| Put `assets/screenshots/calendar.png` here | Put `assets/screenshots/follow-ups.png` here | Put `assets/screenshots/analytics.png` here |
+
+| Workflow 1 | Workflow 2 | Webhook Flow |
+| --- | --- | --- |
+| Put `assets/screenshots/workflow-1.png` here | Put `assets/screenshots/workflow-2.png` here | Put `assets/screenshots/webhook-flow.png` here |
 
 ---
 
+A modern AI-powered dental appointment automation system built with Retell AI, n8n, Telegram, Twilio, Google Sheets, Google Calendar, and a real-time dashboard.
+
+This project automates the complete patient appointment workflow for a dental clinic, from lead capture to AI outbound calling, appointment availability checking, calendar booking, call logging, and operational dashboard monitoring.
+
 ## Overview
 
-AI Dental Receptionist Automation is designed to help dental clinics reduce manual receptionist workload by using an AI voice agent to call patients, collect appointment details, check availability, book appointments, and keep clinic records updated automatically.
+AI Dental Receptionist Automation helps dental clinics reduce manual receptionist workload by using an AI voice agent to call patients, collect appointment details, check availability, book appointments, and keep clinic records updated automatically.
 
-The system captures leads from Telegram, stores them in Google Sheets, triggers outbound AI calls through Retell AI, checks availability using Google Calendar, books appointments through n8n workflows, and displays real-time operational data in a modern dashboard.
+The system captures leads from Telegram, stores them in Google Sheets, triggers outbound AI calls through Retell AI, checks availability using Google Calendar, books appointments through n8n workflows, and displays real-time operational data in a dashboard.
 
 ## Key Features
 
@@ -26,7 +42,7 @@ The system captures leads from Telegram, stores them in Google Sheets, triggers 
 - Admin and patient email notifications
 - Real-time operational dashboard
 - Lead, call, appointment, and follow-up tracking
-- Developer-friendly architecture using n8n as automation backend
+- Developer-friendly architecture using n8n as the automation backend
 
 ## Tech Stack
 
@@ -74,7 +90,7 @@ The system captures leads from Telegram, stores them in Google Sheets, triggers 
 
 ## System Workflow
 
-```
+```text
 Telegram Lead
     ↓
 n8n Telegram Trigger
@@ -110,9 +126,8 @@ Dashboard Displays Real-Time Data
 
 ## Dashboard Modules
 
-The dashboard includes the following modules:
-
 ### 1. Overview
+
 A command center for clinic operations, showing:
 
 - Total leads
@@ -121,11 +136,12 @@ A command center for clinic operations, showing:
 - Calls completed
 - Appointments booked
 - Booking conversion rate
-- Today’s appointments
+- Today's appointments
 - Failed or missed calls
 - Automation health status
 
 ### 2. Lead Inbox
+
 Tracks all patient leads captured from Telegram.
 
 Features:
@@ -137,6 +153,7 @@ Features:
 - Open related appointment or call log
 
 ### 3. AI Calls
+
 Shows all Retell AI call activity.
 
 Features:
@@ -149,6 +166,7 @@ Features:
 - Call outcome badges
 
 ### 4. Appointments
+
 Displays booked dental appointments.
 
 Features:
@@ -160,9 +178,11 @@ Features:
 - Today and upcoming appointments
 
 ### 5. Calendar
+
 A calendar-style appointment view with clinic working hours.
 
 ### 6. Follow-ups
+
 Prioritizes leads that need manual or automated follow-up.
 
 Examples:
@@ -174,6 +194,7 @@ Examples:
 - High-priority dental pain cases
 
 ### 7. Analytics
+
 Shows performance metrics such as:
 
 - Lead volume
@@ -184,6 +205,7 @@ Shows performance metrics such as:
 - Failed call trends
 
 ### 8. Integrations
+
 Displays connected services:
 
 - Telegram Bot
@@ -195,6 +217,7 @@ Displays connected services:
 - Email notifications
 
 ### 9. Settings
+
 Admin configuration area for:
 
 - Clinic profile
@@ -205,11 +228,12 @@ Admin configuration area for:
 - API configuration
 
 ## Google Sheets Structure
+
 The project uses three main Google Sheets tabs.
 
 ### `leads`
 
-```
+```text
 Lead_ID
 name
 Phone
@@ -224,7 +248,7 @@ Updated_At
 
 ### `appointments`
 
-```
+```text
 Appointment_ID
 Lead_ID
 Patient_Name
@@ -240,7 +264,7 @@ Notes
 
 ### `call_logs`
 
-```
+```text
 Log_ID
 Lead_ID
 Retell_Call_ID
@@ -255,32 +279,37 @@ Raw_Data
 ```
 
 ## n8n Workflows
-This project uses multiple n8n workflows.
 
 ### 1. Telegram Leads to Retell Call
+
 Captures Telegram messages, parses lead information, saves the lead into Google Sheets, formats the phone number, and starts an outbound Retell AI call.
 
 ### 2. Check Availability
+
 Receives appointment time from Retell AI, checks Google Calendar availability, and returns whether the requested slot is available.
 
 ### 3. Book Appointment
+
 Creates a Google Calendar event, saves the appointment in Google Sheets, and sends confirmation emails.
 
 ### 4. Retell Call Status Logger
+
 Receives Retell webhook events after calls, saves call summaries, transcripts, statuses, and recording links into Google Sheets.
 
 ### 5. Dashboard API Workflows
+
 Exposes Google Sheets data through n8n webhook APIs for the dashboard.
 
 Example endpoints:
 
-```
+```text
 GET /webhook/api/leads
 GET /webhook/api/appointments
 GET /webhook/api/call-logs
 ```
 
 ## Retell AI Agent
+
 The AI agent acts as a professional dental clinic receptionist.
 
 Responsibilities:
@@ -295,54 +324,47 @@ Responsibilities:
 - Escalate urgent or complex cases to clinic staff
 
 ## Example Lead Message Format
-Telegram message example:
 
-```
+```text
 Name: Dara Khan
 Phone: 03018249617
 Email: patient@example.com
 Issue: Dental checkup
 Preferred time: 2026-12-21T11:00:00+05:00
 ```
+
 The system converts the phone number into E.164 format:
 
-```
-03018249617 → +923018249617
+```text
+03018249617 -> +923018249617
 ```
 
 ## Environment Variables
+
 Create a `.env` file for frontend/API configuration.
 
-```
+```env
 NEXT_PUBLIC_API_BASE_URL=https://your-n8n-domain.com/webhook/api
 RETELL_API_KEY=your_retell_api_key
 ```
+
 Do not expose private API keys in frontend code.
 
 ## Installation
-Clone the repository:
 
-```
-git clone https://github.com/your-username/ai-dental-receptionist-automation.git
-cd ai-dental-receptionist-automation
-```
-Install dependencies:
-
-```
+```bash
 npm install
-```
-Run the development server:
-
-```
 npm run dev
 ```
-Open the app:
 
-```
+Open the app at:
+
+```text
 http://localhost:3000
 ```
 
 ## Data Integration
+
 By default, the dashboard can use mock data for development.
 
 To connect real data:
@@ -354,7 +376,7 @@ To connect real data:
 
 Example API response:
 
-```
+```json
 {
   "success": true,
   "data": []
@@ -362,6 +384,7 @@ Example API response:
 ```
 
 ## Real-Time Sync
+
 The dashboard is designed to refresh data every 30 seconds.
 
 It also includes:
@@ -375,6 +398,7 @@ It also includes:
 For true real-time updates, this architecture can be upgraded to Supabase Realtime or WebSocket-based updates.
 
 ## Project Status
+
 Current implementation includes:
 
 - Telegram lead capture
@@ -402,52 +426,16 @@ Current implementation includes:
 - Patient CRM timeline
 
 ## Admin
-Dashboard admin:
 
-```
+```text
 Name: Hamayoon
 Role: Admin
 ```
 
 ## Disclaimer
+
 This project is built for appointment scheduling and operational automation. The AI agent does not provide medical diagnosis, prescriptions, or emergency medical advice. Urgent or complex dental cases should be escalated to qualified clinic staff.
 
 ## License
+
 This project is for portfolio, demo, and client automation use. Add your preferred license before public distribution.
-
----
-
-## Screenshots
-Add the provided screenshots to `assets/screenshots/` and reference them here. Example image references (place your images at these paths):
-
-![Overview](assets/screenshots/overview.png)
-![Lead Inbox](assets/screenshots/lead-inbox.png)
-![AI Calls](assets/screenshots/ai-calls.png)
-![Calendar](assets/screenshots/calendar.png)
-![Follow-ups](assets/screenshots/follow-ups.png)
-![Analytics](assets/screenshots/analytics.png)
-![Workflows 1](assets/screenshots/workflow-1.png)
-![Workflows 2](assets/screenshots/workflow-2.png)
-![Webhook Flow](assets/screenshots/webhook.png)
-
-If you want, I can add the actual image files into `assets/screenshots/` — upload the screenshots or allow me to save them and I'll place them in the repo and update this README accordingly.
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/915a2198-c4e5-469c-8b9a-ba38c7c3c66a
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
