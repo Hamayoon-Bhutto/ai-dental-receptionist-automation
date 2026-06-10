@@ -6,15 +6,18 @@ Add the project screenshots to `assets/screenshots/` and they will render here w
 
 | Overview | Lead Inbox | AI Calls |
 | --- | --- | --- |
-| Put `assets/screenshots/overview.png` here | Put `assets/screenshots/lead-inbox.png` here | Put `assets/screenshots/ai-calls.png` here |
+| ![Overview](assets/screenshots/image-1781083440744.png) | ![Lead Inbox](assets/screenshots/image-1781083472449.png) | ![AI Calls](assets/screenshots/image-1781083500541.png) |
 
 | Calendar | Follow-ups | Analytics |
 | --- | --- | --- |
-| Put `assets/screenshots/calendar.png` here | Put `assets/screenshots/follow-ups.png` here | Put `assets/screenshots/analytics.png` here |
+| ![Calendar](assets/screenshots/image-1781083526689.png) | ![Follow-ups](assets/screenshots/image-1781083547966.png) | ![Analytics](assets/screenshots/image-1781083570227.png) |
 
 | Workflow 1 | Workflow 2 | Webhook Flow |
 | --- | --- | --- |
-| Put `assets/screenshots/workflow-1.png` here | Put `assets/screenshots/workflow-2.png` here | Put `assets/screenshots/webhook-flow.png` here |
+| ![Workflow 1](assets/screenshots/image-1781083627190.png) | ![Workflow 2](assets/screenshots/image-1781083679040.png) | ![Webhook Flow](assets/screenshots/image-1781083710090.png) |
+
+<!-- Additional screenshot -->
+![Extra](assets/screenshots/image-1781083736241.png)
 
 ---
 
